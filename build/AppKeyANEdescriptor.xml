@@ -1,0 +1,13 @@
+<extension xmlns="http://ns.adobe.com/air/extension/3.6">
+  <id>com.appkey.ane</id>
+  <versionNumber>1</versionNumber>
+  <platforms>
+    <platform name="Android-ARM">
+      <applicationDeployment>
+        <nativeLibrary>appkeyanenative.jar</nativeLibrary>
+        <initializer>com.appkey.ane.ANEextension</initializer>
+        <finalizer>com.appkey.ane.ANEextension</finalizer>
+      </applicationDeployment>
+    </platform>
+  </platforms>
+</extension>

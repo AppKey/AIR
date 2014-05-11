@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="HomeView">
+	<fx:Declarations>
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import com.appkey.ane.AppKeyExtension;
+			import com.adobe.sampleasextension.SampleASExtension;
+			
+			public function button1_clickHandler(event:MouseEvent):void
+			{
+				trace("AppKeyANEdemoHomeView: about to instantiate extension");
+				var ane:AppKeyExtension = new AppKeyExtension();
+				trace("AppKeyANEdemoHomeView: extension instantiated");
+				//var ane:SampleASExtension = new SampleASExtension();
+				//ane.showBrowser();
+			}
+			
+			public function button2_clickHandler(event:MouseEvent):void
+			{
+				var ane:SampleASExtension = new SampleASExtension();
+				ane.getVersion();
+			}
+		]]>
+	</fx:Script>
+	<s:Button x="25" y="100" label="Instantiate AppKey ANE" click="button1_clickHandler(event)"/>
+	<s:Button x="25" y="200" label="SampleANE Version" click="button2_clickHandler(event)"/>
+</s:View>
