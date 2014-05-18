@@ -14,10 +14,10 @@ package com.appkey.ane
 		}
 		
 		//TODO: Add constructor parameters for appId & analyticsEnabled
-		private var appId : String = "9";
-		private var analyticsEnabled : Boolean = true;
+		//private var appId : String = "9";
+		//private var analyticsEnabled : Boolean = true;
 		
-		public function AppKeyExtension() {
+		public function AppKeyExtension(appId:String, analyticsEnabled:Boolean) {
 			trace("AppKeyExtension: Constructor called");
 			if (!extContext) {
 				trace("AppKeyExtension: Creating extension context");
@@ -25,7 +25,7 @@ package com.appkey.ane
 				if (extContext) {
 					//TODO: Finish: extContext.call("init", appId, analyticsEnabled);
 					trace("AppKeyExtension: Extension context created, calling init");
-					extContext.call("init");
+					extContext.call("init", appId, analyticsEnabled);
 					trace("AppKeyExtension: Back from init");
 				} else {
 					trace("AppKeyExtension: Failed to create extension context");
@@ -38,7 +38,7 @@ package com.appkey.ane
 		}
 		
 		public function promptUser(benefit : String):void {
-			extContext.call("promptUser", benefit);
+			extContext.call("promptUser");
 		}
 		
 		public function openAppKey():void {

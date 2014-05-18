@@ -6,12 +6,12 @@ echo "********************************************************************"
 echo " - creating ANE package"
 
 rm -rf Android-ARM/*
-rm -f SampleASExtension.ane library.swf
+rm -f AppKeyExtension.ane library.swf
 mkdir -p Android-ARM
 
 unzip ../actionscript/bin/AppKeyANEactionscript.swc library.swf
 cp library.swf Android-ARM
-cp "$native_dir"/bin/AppKeyANEnative.jar Android-ARM
+cp "$native_dir"/bin/appkeyanenative.jar Android-ARM
 cp -r "$native_dir"/res Android-ARM
 
 "$adt" -package -target ane "$output_dir"/AppKeyExtension.ane AppKeyANEdescriptor.xml -swc ../actionscript/bin/AppKeyANEactionscript.swc -platform Android-ARM -C Android-ARM .

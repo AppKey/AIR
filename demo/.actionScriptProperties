@@ -21,14 +21,14 @@
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/spark_dmv.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_dmv.swc" useDefaultLinkType="false"/>
-          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_flashflexkit.swc" useDefaultLinkType="false"/>
-          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/air/applicationupdater_ui.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/air/airframework.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/air/applicationupdater_ui.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_flashflexkit.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_agent.swc" useDefaultLinkType="false"/>
         </excludedEntries>
       </libraryPathEntry>
       <libraryPathEntry kind="1" linkType="1" path="libs"/>
-      <libraryPathEntry kind="5" linkType="2" path="${DOCUMENTS}/ANESampleBuild/SampleASExtension.ane"/>
+      <libraryPathEntry kind="5" linkType="2" path="/Users/jv/Documents/Adobe Flash Builder 4.7/ANESampleBuild/SampleASExtension.ane"/>
       <libraryPathEntry kind="5" linkType="2" path="/Users/jv/code/github/AIR/ANE/AppKeyExtension.ane"/>
     </libraryPath>
     <sourceAttachmentPath/>
@@ -47,7 +47,7 @@
       <airSettings airCertificatePath="/Users/jv/code/github/AIR/demo/AppKeyANEcert.p12" airTimestamp="true" anePathSet="true" version="1">
         <airExcludes/>
         <anePaths>
-          <anePathEntry path="${DOCUMENTS}/ANESampleBuild/SampleASExtension.ane"/>
+          <anePathEntry path="/Users/jv/Documents/Adobe Flash Builder 4.7/ANESampleBuild/SampleASExtension.ane"/>
           <anePathEntry path="/Users/jv/code/github/AIR/ANE/AppKeyExtension.ane"/>
         </anePaths>
         <newLaunchParams/>

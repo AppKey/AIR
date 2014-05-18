@@ -300,8 +300,13 @@
     </iPhone>
     <extensions>
         
-    <extensionID>com.adobe.sampleasextension</extensionID>
+    
     <extensionID>com.adobe.ane</extensionID>
+    
+    
+    
+    
+    <extensionID>com.adobe.sampleasextension</extensionID>
     
     
     <extensionID>com.appkey.ane</extensionID>

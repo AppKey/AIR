@@ -11,7 +11,7 @@
 			public function button1_clickHandler(event:MouseEvent):void
 			{
 				trace("AppKeyANEdemoHomeView: about to instantiate extension");
-				var ane:AppKeyExtension = new AppKeyExtension();
+				var ane:AppKeyExtension = new AppKeyExtension("10", true);
 				trace("AppKeyANEdemoHomeView: extension instantiated");
 				//var ane:SampleASExtension = new SampleASExtension();
 				//ane.showBrowser();

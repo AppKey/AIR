@@ -13,7 +13,7 @@ public class ANEextension implements FREExtension {
 	public FREContext createContext(String extId) {
 		Logger.d("ANEextension.createContext() Called"); 
 		// TODO Auto-generated method stub
-		return null;
+		return new ANEcontext();
 	}
 
 	//Called if the extension is unloaded from the process
