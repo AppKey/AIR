@@ -6,12 +6,18 @@
 	<fx:Script>
 		<![CDATA[
 			import com.appkey.ane.AppKey;
-			import com.adobe.sampleasextension.SampleASExtension;
+			import com.appkey.ane.AppKeyEvent;
 			
+			private var mAppKey:AppKey = null;
+
 			public function button1_clickHandler(event:MouseEvent):void
 			{
-				trace("AppKeyANEdemoHomeView: about to instantiate extension");
-				var ane:AppKey = new AppKey("10", true);
+				trace("AppKeyANEdemoHomeView: about to call checkAccess");
+				//AppKey.addEventListener(AppKeyEvent.APPKEY_ENABLED, onEvent);
+				//var ane:AppKey = new AppKey("10", true);
+				mAppKey = new AppKey("10", true);
+				mAppKey.addEventListener(AppKeyEvent.APPKEY_ENABLED, this.onEvent);
+				mAppKey.addEventListener(AppKeyEvent.APPKEY_DISABLED, this.onEvent);
 				trace("AppKeyANEdemoHomeView: extension instantiated");
 				//var ane:SampleASExtension = new SampleASExtension();
 				//ane.showBrowser();
@@ -19,11 +25,40 @@
 			
 			public function button2_clickHandler(event:MouseEvent):void
 			{
-				var ane:SampleASExtension = new SampleASExtension();
-				ane.getVersion();
+				//var ane:SampleASExtension = new SampleASExtension();
+				//ane.getVersion();
+				if (mAppKey != null) {
+					mAppKey.checkAccess();
+				}
 			}
+		
+			public function button3_clickHandler(event:MouseEvent):void
+			{
+
+				if (mAppKey != null) {
+					mAppKey.aneCheckAccess();
+				}
+			}
+			
+			public function onEvent(akEvent:AppKeyEvent):void {
+
+				//if (akEvent.type == AppKeyEvent.APPKEY_ENABLED)
+				mAppKey.aneLogcatMessage("AppKeyANEdemoHomeView.onEvent Called. akEvent.type="+akEvent.type);
+				switch (akEvent.type) {
+					case AppKeyEvent.APPKEY_ENABLED:
+						akStatus.text = "Status: Enabled";
+						break;
+					case AppKeyEvent.APPKEY_DISABLED:
+						akStatus.text = "Status: Disabled";
+						break;
+				}
+				//akStatus.text = "Event received";
+			}
+
 		]]>
 	</fx:Script>
-	<s:Button x="25" y="100" label="Instantiate AppKey ANE" click="button1_clickHandler(event)"/>
-	<s:Button x="25" y="200" label="SampleANE Version" click="button2_clickHandler(event)"/>
+	<s:Button x="25" y="100" label="Instantiate AppKey" click="button1_clickHandler(event)"/>
+	<s:Button x="25" y="200" label="Call checkAccess" click="button2_clickHandler(event)"/>
+	<s:Button x="25" y="300" label="Call aneCheckAccess" click="button3_clickHandler(event)"/>
+	<s:Label x="25" y="10" text="Status: none" id="akStatus"/>
 </s:View>
