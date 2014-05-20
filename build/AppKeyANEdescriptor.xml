@@ -8,9 +8,6 @@
         <initializer>com.appkey.ane.ANEextension</initializer>
         <finalizer>com.appkey.ane.ANEextension</finalizer>
       </applicationDeployment>
-      <applicationDeployment>
-        <nativeLibrary>AppKeySdk-1-6.jar</nativeLibrary>
-      </applicationDeployment>
     </platform>
   </platforms>
 </extension>

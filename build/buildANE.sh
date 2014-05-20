@@ -4,19 +4,27 @@ native_dir="../android"
 output_dir="../ANE"
 
 echo "********************************************************************"
-echo " - creating ANE package"
+echo " - staging files"
 
 rm -rf Android-ARM/*
 rm -f AppKey.ane library.swf
 mkdir -p Android-ARM
-
 unzip ../actionscript/bin/AppKeyANEactionscript.swc library.swf
 cp library.swf Android-ARM
-cp "$native_dir"/bin/appkeyanenative.jar Android-ARM
 cp -r "$native_dir"/res Android-ARM
-cp "$latest_appkey_sdk" Android-ARM
 
+echo "********************************************************************"
+echo " - Merging ANE native (java) & AppKeySdk into a single jar"
+rm -rf jarguts/*
+mkdir -p jarguts
+(cd jarguts; jar -xf "$latest_appkey_sdk")
+(cd jarguts; jar -xf ../"$native_dir"/bin/appkeyanenative.jar)
+jar cvf Android-ARM/appkeyanenative.jar -C jarguts .
+rm -rf jarguts/*
+rmdir jarguts
+
+echo "********************************************************************"
+echo " - creating ANE package"
 "$adt" -package -target ane "$output_dir"/AppKey.ane AppKeyANEdescriptor.xml -swc ../actionscript/bin/AppKeyANEactionscript.swc -platform Android-ARM -C Android-ARM .
-#w/platform.xml - "$adt" -package -target ane "$output_dir"/AppKey.ane AppKeyANEdescriptor.xml -swc ../actionscript/bin/AppKeyANEactionscript.swc -platform Android-ARM -platformoptions platform.xml -C Android-ARM .
 
 #"$adt" -package -storetype PKCS12 -keystore cer.p12 -storepass password -target ane SampleASExtension.ane extension.xml -swc ../ANESample/bin/ANESample.swc -platform Android-ARM -C Android-ARM .
