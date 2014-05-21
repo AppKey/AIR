@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		xmlns:s="library://ns.adobe.com/flex/spark" title="AppKey ANE demo">
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		creationComplete="handleCreationComplete();"
+		title="AppKey ANE demo">
 	<fx:Declarations>
 	</fx:Declarations>
 	<fx:Script>
@@ -35,7 +37,6 @@
 			}
 			
 			public function onEvent(akEvent:AppKeyEvent):void {
-
 				mAppKey.aneLogcatMessage("AppKeyANEdemoHomeView.onEvent Called. akEvent.type="+akEvent.type);
 				switch (akEvent.type) {
 					case AppKeyEvent.APPKEY_ENABLED:
@@ -45,6 +46,12 @@
 						akStatus.text = "Status: Disabled";
 						break;
 				}
+			}
+			private function handleCreationComplete():void
+			{
+				mAppKey = new AppKey(AppKeyAppId, AppKeyAnalyticsEnabled);
+				mAppKey.addEventListener(AppKeyEvent.APPKEY_ENABLED, this.onEvent);
+				mAppKey.addEventListener(AppKeyEvent.APPKEY_DISABLED, this.onEvent);
 			}
 
 		]]>
