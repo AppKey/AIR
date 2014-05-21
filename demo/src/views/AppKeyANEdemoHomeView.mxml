@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		xmlns:s="library://ns.adobe.com/flex/spark" title="HomeView">
+		xmlns:s="library://ns.adobe.com/flex/spark" title="AppKey ANE demo">
 	<fx:Declarations>
 	</fx:Declarations>
 	<fx:Script>
@@ -9,24 +9,18 @@
 			import com.appkey.ane.AppKeyEvent;
 			
 			private var mAppKey:AppKey = null;
+			private static const AppKeyAppId : String = "9";
+			private static const AppKeyAnalyticsEnabled : Boolean = true;
 
 			public function button1_clickHandler(event:MouseEvent):void
 			{
-				trace("AppKeyANEdemoHomeView: about to call checkAccess");
-				//AppKey.addEventListener(AppKeyEvent.APPKEY_ENABLED, onEvent);
-				//var ane:AppKey = new AppKey("10", true);
-				mAppKey = new AppKey("10", true);
+				mAppKey = new AppKey(AppKeyAppId, AppKeyAnalyticsEnabled);
 				mAppKey.addEventListener(AppKeyEvent.APPKEY_ENABLED, this.onEvent);
 				mAppKey.addEventListener(AppKeyEvent.APPKEY_DISABLED, this.onEvent);
-				trace("AppKeyANEdemoHomeView: extension instantiated");
-				//var ane:SampleASExtension = new SampleASExtension();
-				//ane.showBrowser();
 			}
 			
 			public function button2_clickHandler(event:MouseEvent):void
 			{
-				//var ane:SampleASExtension = new SampleASExtension();
-				//ane.getVersion();
 				if (mAppKey != null) {
 					mAppKey.checkAccess();
 				}
@@ -36,13 +30,12 @@
 			{
 
 				if (mAppKey != null) {
-					mAppKey.aneCheckAccess();
+					mAppKey.checkAccess();
 				}
 			}
 			
 			public function onEvent(akEvent:AppKeyEvent):void {
 
-				//if (akEvent.type == AppKeyEvent.APPKEY_ENABLED)
 				mAppKey.aneLogcatMessage("AppKeyANEdemoHomeView.onEvent Called. akEvent.type="+akEvent.type);
 				switch (akEvent.type) {
 					case AppKeyEvent.APPKEY_ENABLED:
@@ -52,7 +45,6 @@
 						akStatus.text = "Status: Disabled";
 						break;
 				}
-				//akStatus.text = "Event received";
 			}
 
 		]]>
