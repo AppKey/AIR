@@ -7,6 +7,11 @@ import com.adobe.fre.FREFunction;
 import com.adobe.fre.FREObject;
 import com.appkey.sdk.AppKeyChecker;
 
+/**
+ * Call promptUser on the AppKeySdk. Requires a benefit string to prompt the user with.
+ * 
+ * @author @vitek
+ */
 public class promptUser implements FREFunction {
 
 	@Override

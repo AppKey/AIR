@@ -10,28 +10,48 @@
 			import com.appkey.ane.AppKey;
 			import com.appkey.ane.AppKeyEvent;
 			
-			private var mAppKey:AppKey = null;
+			/**
+			 * AppKeyAppId				Numeric value from AppKey.com. Generated when app is registered.
+			 * AppKeyAnalyticsEnabled	If true, and if the calling app has INTERNET permission, the SDK
+			 *                          will send user interactions events along the installation funnel
+			 *                          for the purpose of measuring & optimizing conversion. Events are
+			 *                          tracked using an anonymous UDID.
+			 * AppKeyBenefit			Description of feature(s) that will be unlocked for AppKey users
+			 */
 			private static const AppKeyAppId : String = "9";
 			private static const AppKeyAnalyticsEnabled : Boolean = true;
-			private static const AppKeyBenefit : String = "some amazing feature in my AIR app";
+			private static const AppKeyBenefit : String = "some amazing AIR app feature";
 
+			private var mAppKey:AppKey = null;
+
+			/**
+		     * Prompt the user to install/enable AppKey. User will be prompted via native AlertDialog if
+     		 * AppKey is not installed, or sent to the Instructions screen in AppKey if it is installed.
+			 */
 			public function button_promptUser_clickHandler(event:MouseEvent):void
 			{
 				mAppKey.promptUser(AppKeyBenefit);
 			}
 
+			/**
+			 * AppKey status event handler. Insert code here to enable/disable features for AppKey users
+			 */
 			public function onEvent(akEvent:AppKeyEvent):void {
-				mAppKey.aneLogcatMessage("AppKeyANEdemoHomeView.onEvent Called. akEvent.type="+akEvent.type);
 				switch (akEvent.type) {
 					case AppKeyEvent.APPKEY_ENABLED:
 						akStatus.text = "Enabled";
+						//TODO: Insert code here to ENABLE features for AppKey users
 						break;
 					case AppKeyEvent.APPKEY_DISABLED:
 						akStatus.text = "Disabled";
+						//TODO: Insert code here to DISABLE features for AppKey users
 						break;
 				}
 			}
 
+			/**
+			 * Initialization of AppKey and the initial check of AppKey status. Result returned via event
+			 */
 			private function handleCreationComplete():void
 			{
 				mAppKey = new AppKey(AppKeyAppId, AppKeyAnalyticsEnabled);
@@ -39,26 +59,9 @@
 				mAppKey.addEventListener(AppKeyEvent.APPKEY_DISABLED, this.onEvent);
 				mAppKey.checkAccess();
 			}
-
-			public function button_openAppKey_clickHandler(event:MouseEvent):void
-			{
-				mAppKey.openAppKey();
-			}
-
-			public function button_isenabled_clickHandler(event:MouseEvent):void
-			{
-				if (mAppKey.isAppKeyEnabled) {
-					labelIsAppKeyEnabled.text = "Enabled";
-				} else {
-					labelIsAppKeyEnabled.text = "Disabled";
-				}
-			}
 		]]>
 	</fx:Script>
-	<s:Label x="10" y="25" text="AppKey status:"/>
+	<s:Label x="25" y="25" text="AppKey status:"/>
 	<s:Label x="200" y="25" text="" id="akStatus" width="200"/>
 	<s:Button x="25" y="100" label="Call promptUser" click="button_promptUser_clickHandler(event)"/>
-	<s:Button x="25" y="200" label="Call openAppKey" click="button_openAppKey_clickHandler(event)"/>
-	<s:Button x="10" y="300" label="isAppKeyEnabled==" click="button_isenabled_clickHandler(event)"/>
-	<s:Label x="200" y="300" text="" id="labelIsAppKeyEnabled" width="200"/>
 </s:View>

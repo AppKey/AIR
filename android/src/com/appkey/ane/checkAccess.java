@@ -6,6 +6,10 @@ import com.adobe.fre.FREObject;
 import com.appkey.sdk.AppKeyChecker;
 import com.appkey.sdk.AppKeyCheckerCallback;
 
+/**
+ * Call AppKeySdk to determine AppKey status. Result returned to flash via events.
+ * @author jv
+ */
 public class checkAccess implements FREFunction {
 
 	@Override
@@ -41,7 +45,7 @@ public class checkAccess implements FREFunction {
 
 		@Override
 		public void dontAllow(int reason) {
-			//reason is ignored because it is on it's way to deprecation
+			//reason code ignored because it is on it's way to deprecation soon
 			Logger.d("AppKeyANEnative.checkAccess dontAllow/Disabled callback Called (java side)");
 			_context.dispatchStatusEventAsync(ANEevents.APPKEY_DISABLED, "");
 		}

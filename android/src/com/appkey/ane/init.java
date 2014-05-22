@@ -7,6 +7,10 @@ import com.adobe.fre.FREFunction;
 import com.adobe.fre.FREObject;
 import com.appkey.sdk.AppKeyChecker;
 
+/**
+ * Initialize the AppKeyChecker. Requires an appId & value for analyticsEnabled.
+ * @author @vitek
+ */
 public class init implements FREFunction {
 
 	@Override

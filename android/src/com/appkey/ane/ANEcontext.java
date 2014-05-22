@@ -7,7 +7,6 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 import com.appkey.sdk.AppKeyChecker;
 
-
 public class ANEcontext extends FREContext {
 
 	public AppKeyChecker _AppKeyChecker = null;

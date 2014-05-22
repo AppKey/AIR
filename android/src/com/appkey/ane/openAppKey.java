@@ -5,6 +5,10 @@ import com.adobe.fre.FREFunction;
 import com.adobe.fre.FREObject;
 import com.appkey.sdk.AppKeyChecker;
 
+/**
+ * Open the AppKey store
+ * @author @vitek
+ */
 public class openAppKey implements FREFunction {
 
 	@Override

@@ -10,16 +10,16 @@ import android.util.Log;
 public class Logger {
 	
     private final static String mTag="AppKeyANE";
-    private final static boolean mLogd=true;
+    private final static boolean mLogd=false;
 
     public static void d(String message) {
-        if (mLogd||Log.isLoggable(mTag, Log.DEBUG)) {
+        if (mLogd) {
             Log.d(mTag, message);
         }
     }
 
     public static void d(String message, Throwable cause) {
-        if (mLogd||Log.isLoggable(mTag, Log.DEBUG)) {
+        if (mLogd) {
             Log.d(mTag, message, cause);
         }
     }

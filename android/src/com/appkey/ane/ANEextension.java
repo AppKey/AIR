@@ -3,6 +3,10 @@ package com.appkey.ane;
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 
+/**
+ * Boilerplate from Adobe's documentation
+ * @author @vitek
+ */
 public class ANEextension implements FREExtension {
 
 	/*
@@ -12,7 +16,6 @@ public class ANEextension implements FREExtension {
 	@Override
 	public FREContext createContext(String extId) {
 		Logger.d("ANEextension.createContext() Called"); 
-		// TODO Auto-generated method stub
 		return new ANEcontext();
 	}
 
@@ -20,13 +23,11 @@ public class ANEextension implements FREExtension {
 	@Override
 	public void dispose() {
 		Logger.d("ANEextension.dispose() Called");
-		// TODO Auto-generated method stub
 	}
 
 	//Extension initialization
 	@Override
 	public void initialize() {
 		Logger.d("ANEextension.initialize() Called");
-		// TODO Auto-generated method stub
 	}
 }
