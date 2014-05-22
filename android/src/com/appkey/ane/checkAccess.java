@@ -11,9 +11,7 @@ public class checkAccess implements FREFunction {
 	@Override
 	public FREObject call(FREContext context, FREObject[] args) {
 		
-		//TODO: REMOVE this temporary event
 		Logger.d("AppKeyANEnative.checkAccess Called (java side)");
-		//context.dispatchStatusEventAsync("APPKEY_ENABLED", "");
 
 		ANEcontext aneContext = null;
 		AppKeyChecker akc = null;
