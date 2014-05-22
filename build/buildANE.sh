@@ -1,4 +1,5 @@
 latest_appkey_sdk="/Users/jv/GoogleDrive/ak/jv/Builds/AppKeySdk-1-6/AppKeySdk-1-6.jar"
+appkey_ane_filename="AppKey-1-6.ane"
 adt="/Applications/Adobe Flash Builder 4.7/eclipse/plugins/com.adobe.flash.compiler_4.7.0.349722/AIRSDK/bin/adt"
 native_dir="../android"
 output_dir="../ANE"
@@ -25,6 +26,6 @@ rmdir jarguts
 
 echo "********************************************************************"
 echo " - creating ANE package"
-"$adt" -package -target ane "$output_dir"/AppKey.ane AppKeyANEdescriptor.xml -swc ../actionscript/bin/AppKeyANEactionscript.swc -platform Android-ARM -C Android-ARM .
+"$adt" -package -target ane "$output_dir"/"$appkey_ane_filename" AppKeyANEdescriptor.xml -swc ../actionscript/bin/AppKeyANEactionscript.swc -platform Android-ARM -C Android-ARM .
 
 #"$adt" -package -storetype PKCS12 -keystore cer.p12 -storepass password -target ane SampleASExtension.ane extension.xml -swc ../ANESample/bin/ANESample.swc -platform Android-ARM -C Android-ARM .
