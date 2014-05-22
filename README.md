@@ -1,33 +1,32 @@
-#About
-AppKey ANE for Adobe AIR projects (see AppKey.com for an AppKey overview)
-
 #License
 This project is provided under a MIT open-source license. See LICENSE.md
 
 #Structure
-Finished ANE ready for download: github.com/appkey/AIR/ANE/AppKey-x-x.ane
+Finished ANE ready for download: https://github.com/AppKey/AIR/blob/master/ANE/AppKey-1-6.ane
 
 The approach to the AppKey ANE roughly follows the Adobe Android ANE tutorial.
 Setting up a proper FlashBuilder environment is as tricky as building the ANE itself.
 Instructions for a basic ANE & build environment setup can be found here:
 http://www.adobe.com/devnet/air/articles/ane-android-devices.html
 
-/actionscript - ANE interface definition in actionscript
-/android - Native side of the ANE
-/build - ANE build scripts. Run buildANE.sh to rebuild the ANE
-/ANE - Finished ANE
-/demo - Flex based demo project that uses the ANE
+/actionscript - ANE interface definition in actionscript<br />
+/android - Native side of the ANE<br />
+/build - ANE build scripts. Run buildANE.sh to rebuild the ANE<br />
+/ANE - Finished ANE<br />
+/demo - Flex based demo project that uses the ANE<br />
 
 #Demo project
 Typically the fastest way to become familiar with the AppKey AIR integration is
 to download and run the sample flex project in /demo. The demo app automatically
 checks AppKey status when run, and every time the user switches back to the app.
 
+https://github.com/AppKey/AIR/blob/master/demo/AppKeyANEdemo.apk
+
 Open the project in Flash Builder to observe the (rather simple) integration.
 
 #Integration
 1. Add AppKey-x-x.ane to your AIR project
-2. Instantiate & Initialize AppKey upon creationComplete() and s
+2. Instantiate & Initialize AppKey upon creationComplete()
 ```actionscript
 import com.appkey.ane.AppKey;
 import com.appkey.ane.AppKeyEvent;
