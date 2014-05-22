@@ -25,8 +25,8 @@ https://github.com/AppKey/AIR/blob/master/demo/AppKeyANEdemo.apk
 Open the project in Flash Builder to observe the (rather simple) integration.
 
 #Integration
-1) Add AppKey-x-x.ane to your AIR project
-2) Instantiate & Initialize AppKey upon creationComplete()
+1) Add AppKey-x-x.ane to your AIR project<br />
+2) Instantiate & Initialize AppKey upon creationComplete()<br />
 ```actionscript
 import com.appkey.ane.AppKey;
 import com.appkey.ane.AppKeyEvent;
@@ -43,7 +43,7 @@ private function handleCreationComplete():void
 	mAppKey.checkAccess();
 }
 ```
-3) Create event handlers that switch on/off AppKey features
+3) Create event handlers that switch on/off AppKey features<br />
 ```actionscript
 public function onEvent(akEvent:AppKeyEvent):void {
 	switch (akEvent.type) {
@@ -57,7 +57,7 @@ public function onEvent(akEvent:AppKeyEvent):void {
 }
 ```
 4) Prompt the user to install and/or enable AppKey.  (Note - AppKey handles all
-the UI, your app simply needs to call promptUser())
+the UI, your app simply needs to call promptUser())<br />
 ```actionscript
 private static const AppKeyBenefit : String = "feature";  <<<--- Replace with feature to be unlocked
 ...
